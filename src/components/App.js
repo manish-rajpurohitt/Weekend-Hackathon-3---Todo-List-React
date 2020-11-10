@@ -23,9 +23,9 @@ function App() {
 	
 	<textarea id="task" type="text" onChange={()=>handleChange(event)} value={todo}/>
 	<button id="btn" onClick={()=>handleAdd()}>Add</button>
-	<ul>
+	
 	{todosList.length === 0 ? "":<TodosList key="todolist" todoList={todosList} updateTodoList={updateTodosList}/>}
-	</ul>
+	
 	</div>
 	);
 }
