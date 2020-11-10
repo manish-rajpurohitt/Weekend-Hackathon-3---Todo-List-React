@@ -6,6 +6,7 @@ export default function TodosList(props) {
   let updateTodosList = props.updateTodoList;
   const [editTodoInput, updateEditTodo] = React.useState("");
   const changeEditTodoState = (event) => {
+    let svEle = document.getElementsByClassName(event.target.className)[1];
     updateEditTodo(event.target.value);
   };
   const editTodo = (event) => {
@@ -27,6 +28,7 @@ export default function TodosList(props) {
     let index = parseInt(event.target.className);
     let unique = todosList;
     unique[index] = editTodoInput;
+    console.log(unique[index]);
     let inputEle = document.getElementsByClassName(event.target.className)[0];
     let saveEle = document.getElementsByClassName(event.target.className)[1];
     let editEle = document.getElementsByClassName(event.target.className)[2];
@@ -41,30 +43,26 @@ export default function TodosList(props) {
     <>
       {todosList.map((e, index) => {
         return (
-          <>
-            <li key={index.toString()} className="list">
-              {e}
-            </li>
+          <li key={index.toString()} className="list">
+            {e}
             <textarea
               className={("editTask", index)}
               style={{ display: "none" }}
               onChange={() => changeEditTodoState(event)}
               value={editTodoInput}
-              key={`inp${index}`}
+              key={`inp${e}`}
               type="text"
               placeholder="Edit here..."
             />
-
             <button
               className={("saveTask", index)}
-              onClick={() => saveEditTodo(event)}
+              onClick={saveEditTodo}
               style={{ display: "none" }}
               disabled={!editTodoInput}
-              key={`save${index}`}
+              key={`save${e}`}
             >
               save
             </button>
-
             <button
               className={("edit", index)}
               key={`edit${index}`}
@@ -72,7 +70,6 @@ export default function TodosList(props) {
             >
               Edit
             </button>
-
             <button
               key={`delete${index}`}
               className={("delete", index)}
@@ -80,7 +77,7 @@ export default function TodosList(props) {
             >
               Delete
             </button>
-          </>
+          </li>
         );
       })}
     </>
