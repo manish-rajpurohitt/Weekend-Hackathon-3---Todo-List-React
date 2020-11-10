@@ -41,8 +41,10 @@ export default function TodosList(props) {
     <>
       {todosList.map((e, index) => {
         return (
-          <li key={index.toString()} className="list">
-            {e}
+          <>
+            <li key={index.toString()} className="list">
+              {e}
+            </li>
             <textarea
               className={("editTask", index)}
               style={{ display: "none" }}
@@ -79,7 +81,7 @@ export default function TodosList(props) {
               Delete
             </button>
             <br />
-          </li>
+          </>
         );
       })}
     </>
