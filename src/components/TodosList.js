@@ -54,7 +54,7 @@ export default function TodosList(props) {
               type="text"
               placeholder="Edit here..."
             />
-            <br />
+
             <button
               className={("saveTask", index)}
               onClick={() => saveEditTodo(event)}
@@ -64,7 +64,7 @@ export default function TodosList(props) {
             >
               save
             </button>
-            <br />
+
             <button
               className={("edit", index)}
               key={`edit${index}`}
@@ -72,7 +72,7 @@ export default function TodosList(props) {
             >
               Edit
             </button>
-            <br />
+
             <button
               key={`delete${index}`}
               className={("delete", index)}
@@ -80,7 +80,6 @@ export default function TodosList(props) {
             >
               Delete
             </button>
-            <br />
           </>
         );
       })}
