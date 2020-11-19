@@ -22,7 +22,7 @@ export default function Todos(props) {
         <button className="edit" onClick={()=>handleEdit(value.id)}>Edit</button>
         <button className="delete" onClick={()=>handleDelete(value.id)}>Delete</button>
         {editDisplay?<div><input type="textarea" className="editTask" onChange={(e)=>setEditText(e.target.value)} value={editText}/>
-        <button className="saveTask" onClick={()=>saveNewText(value.id)}>Save</button></div>:null}
+        <button className="saveTask" onClick={()=>saveNewText(value.id)} disabled={!editText}>Save</button></div>:null}
         </div>
         );
     }
